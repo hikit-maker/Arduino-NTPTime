@@ -40,7 +40,7 @@ void NTPTimeClass::begin(UDP &udp, int localPort, int packetSize)
     }
 }
 
-int NTPTimeClass::update()
+void NTPTimeClass::update()
 {
     if ( this->shouldUpdateTime() )
     {
@@ -54,14 +54,12 @@ int NTPTimeClass::update()
 
         if ( packetSize ) {
             unsigned long epoch = this->parseEpoch();
-            return epoch;
+            setTime(epoch);
         }
 
         this->lastUpdate = now();
         this->lastPacketRequest = -1;
     }
-    
-    return -1;
 }
 
 bool NTPTimeClass::shouldUpdateTime()

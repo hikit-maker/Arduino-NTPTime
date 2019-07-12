@@ -14,7 +14,7 @@ class NTPTimeClass {
         void begin(UDP &udp, int localPort, int packetSize);
         bool expired(int newHour, int newMinute);
 
-        int update();
+        void update();
 
     private:
         int updateTimeWindow;
