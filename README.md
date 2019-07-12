@@ -1,5 +1,5 @@
 # Arduino-NTPTime
-NTP Time library for getting the UTC time from a remote server.
+NTP Time library for setting the UTC time from a remote server. It internally calls `setTime( )` with the new epoch remote time. Also the `NTPTime.update( )` doesn’t use delay so it works great with other time dependent libraries like the ESP Server
 
 ## Sample code:
 
